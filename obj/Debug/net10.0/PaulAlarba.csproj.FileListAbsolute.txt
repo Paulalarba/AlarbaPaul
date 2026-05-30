@@ -18,9 +18,7 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.RazorA
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\scopedcss\bundle\PaulAlarba.styles.css
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\scopedcss\projectbundle\PaulAlarba.bundle.scp.css
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\6uthod36e1-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\ab7u8qsk0j-{0}-61n19gt1b8-61n19gt1b8.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\d0qvhg2yrw-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
@@ -83,8 +81,6 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\7dguvf
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\q0tl14pxeq-{0}-muycvpuwrr-muycvpuwrr.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\uu6f68c654-{0}-87fc7y1x7t-87fc7y1x7t.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\6o9l4r91iu-{0}-mlv21k5csn-mlv21k5csn.gz
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\akgvmyym1s-{0}-awkchxt4zd-awkchxt4zd.gz
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\y0iw3xlyh3-{0}-awkchxt4zd-awkchxt4zd.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\staticwebassets.build.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\staticwebassets.build.json.cache
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\staticwebassets.development.json
@@ -95,3 +91,4 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\refint\PaulAlarba
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.pdb
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.genruntimeconfig.cache
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\ref\PaulAlarba.dll
+C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.sourcelink.json
