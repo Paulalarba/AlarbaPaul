@@ -19,9 +19,7 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjimswa.dswa.cach
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\scopedcss\bundle\PaulAlarba.styles.css
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\6uthod36e1-{0}-b9sayid5wm-b9sayid5wm.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\ab7u8qsk0j-{0}-61n19gt1b8-61n19gt1b8.gz
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\d0qvhg2yrw-{0}-xtxxf3hu2r-xtxxf3hu2r.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\sf692na0s9-{0}-bqjiyaj88i-bqjiyaj88i.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\gt4cu0p7u1-{0}-c2jlpeoesf-c2jlpeoesf.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\0fi89y7taf-{0}-erw9l3u2r3-erw9l3u2r3.gz
@@ -92,3 +90,5 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.pdb
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.genruntimeconfig.cache
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\ref\PaulAlarba.dll
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.sourcelink.json
+C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\6uthod36e1-{0}-mjdx4ssbze-mjdx4ssbze.gz
+C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\d0qvhg2yrw-{0}-n28fb0q6gg-n28fb0q6gg.gz
