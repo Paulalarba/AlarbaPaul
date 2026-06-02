@@ -1,49 +1,20 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - PaulAlarba</title>
+    <title>@ViewData["Title"] - Paul Alarba</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/20I1Q9VqXnKLj4eN2p1RYPbT9PrEGfI6U6ZVg0VQW5fQ5I5Q5Q5Q5Q5Q5Q=="
-        crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ["Inter", "system-ui", "sans-serif"],
-                        mono: ["Fira Code", "monospace"]
-                    },
-                    colors: {
-                        ink: "#0b0c10",
-                        panel: "#111319",
-                        line: "rgba(229, 231, 235, 0.14)",
-                        cyan: "#00f3ff",
-                        violet: "#b973ff",
-                        mint: "#38f5a8",
-                        ember: "#ffb86b"
-                    },
-                    boxShadow: {
-                        glow: "0 0 40px rgba(0, 243, 255, 0.18)",
-                        violetGlow: "0 0 36px rgba(185, 115, 255, 0.18)"
-                    }
-                }
-            }
-        };
-    </script>
 </head>
 <body>
     @RenderBody()

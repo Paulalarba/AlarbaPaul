@@ -11,7 +11,7 @@ PaulAlarba is a professional portfolio website built using the **ASP.NET Core MV
 - **Backend:** C# / .NET 8+ (MVC Pattern).
 - **Frontend:** Razor Views, HTML5, CSS3, and Tailwind.
 - **Data Layer:** Entity Framework Core (EF Core) for managing projects, testimonials, and contact messages.
-- **Database:** [Insert Database, e.g., SQL Server / SQLite / PostgreSQL].
+- **Database:**  SQL Server / SQLite / PostgreSQL.
 
 ## Common Commands
 

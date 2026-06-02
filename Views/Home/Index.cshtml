@@ -1,347 +1,272 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+@{
+    ViewData["Title"] = "Portfolio";
 }
-
-<div class="noise-layer" aria-hidden="true"></div>
-
-<!-- Sticky Navigation -->
-<header id="site-header" class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-ink/82 backdrop-blur-md">
-  <nav class="mx-auto flex h-[var(--nav-height)] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8" aria-label="Primary navigation">
-    <a href="#home" class="group inline-flex items-center gap-3" aria-label="Paul Alarba home">
-      <span class="flex h-10 w-10 items-center justify-center rounded border border-cyan/35 bg-cyan/10 font-mono text-sm font-semibold text-cyan shadow-glow">
-        PA
-      </span>
-      <span class="hidden text-sm font-semibold tracking-wide text-slate-100 sm:inline">Paul Alarba</span>
-    </a>
-
-    <div class="hidden items-center gap-8 md:flex">
-      <a href="#home" class="nav-link text-sm font-semibold uppercase tracking-[0.18em]">Home</a>
-      <a href="#about" class="nav-link text-sm font-semibold uppercase tracking-[0.18em]">About</a>
-      <a href="#projects" class="nav-link text-sm font-semibold uppercase tracking-[0.18em]">Projects</a>
-      <a href="#contact" class="nav-link text-sm font-semibold uppercase tracking-[0.18em]">Contact</a>
+<header id="main-header">
+    <div class="nav-container">
+        <a href="/" class="logo">Paul<span>Alarba</span></a>
+        <nav class="nav-menu">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#skills">Skills</a>
+            <a href="#contact">Contact</a>
+        </nav>
+        <a href="#contact" class="cta-btn">Start a project</a>
     </div>
-
-    <button
-      id="menu-toggle"
-      type="button"
-      class="inline-flex min-h-11 min-w-11 items-center justify-center rounded border border-white/15 bg-white/5 text-slate-100 transition hover:border-cyan/45 hover:text-cyan md:hidden"
-      aria-controls="mobile-menu"
-      aria-expanded="false"
-      aria-label="Open navigation menu"
-    >
-      <i class="fa-solid fa-bars" aria-hidden="true"></i>
-    </button>
-  </nav>
-
-  <div id="mobile-menu" class="mobile-menu border-t border-white/10 bg-ink/96 md:hidden">
-    <div class="mx-auto grid max-w-7xl gap-1 px-5 py-4">
-      <a href="#home" class="mobile-nav-link rounded px-3 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 hover:bg-white/5 hover:text-cyan">Home</a>
-      <a href="#about" class="mobile-nav-link rounded px-3 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 hover:bg-white/5 hover:text-cyan">About</a>
-      <a href="#projects" class="mobile-nav-link rounded px-3 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 hover:bg-white/5 hover:text-cyan">Projects</a>
-      <a href="#contact" class="mobile-nav-link rounded px-3 py-3 text-sm font-semibold uppercase tracking-[0.18em] text-slate-200 hover:bg-white/5 hover:text-cyan">Contact</a>
-    </div>
-  </div>
 </header>
 
-<main>
-  <!-- Hero -->
-  <section id="home" class="relative flex min-h-screen items-center px-5 pb-20 pt-32 sm:px-6 lg:px-8">
-    <div class="mx-auto grid w-full max-w-7xl items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
-      <div class="section-reveal">
-        <p class="mb-5 font-mono text-sm font-semibold uppercase tracking-[0.28em] text-cyan">
-          Full-stack developer
-        </p>
+<div class="split-wrapper" id="splitWrapper">
+    <div class="mobile-hint" id="mobileHint">Tap screen to swap roles</div>
 
-        <h1 class="max-w-5xl text-5xl font-black leading-[0.96] tracking-normal text-slate-50 sm:text-6xl lg:text-7xl">
-          Paul Alarba
-          <span class="mt-4 block text-3xl font-extrabold leading-tight text-slate-300 sm:text-4xl lg:text-5xl">
-            From first line of code to full-stack craft: building systems that feel human.
-          </span>
-        </h1>
-
-        <p class="mt-7 max-w-2xl text-lg font-medium leading-8 text-slate-300 sm:text-xl">
-          I design and build practical web experiences with ASP.NET Core, clean interfaces, and a bias for clarity.
-          My work lives where strong engineering meets thoughtful storytelling.
-        </p>
-
-        <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-          <a href="#projects" class="inline-flex min-h-12 items-center justify-center rounded border border-cyan/60 bg-cyan px-6 py-3 text-sm font-extrabold uppercase tracking-[0.14em] text-ink shadow-glow transition hover:-translate-y-1 hover:bg-cyan/90 focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-ink">
-            View My Work
-          </a>
-          <a href="#contact" class="inline-flex min-h-12 items-center justify-center rounded border border-white/18 bg-white/5 px-6 py-3 text-sm font-extrabold uppercase tracking-[0.14em] text-slate-100 transition hover:-translate-y-1 hover:border-violet/60 hover:text-violet focus:outline-none focus:ring-2 focus:ring-violet focus:ring-offset-2 focus:ring-offset-ink">
-            Let's Talk
-          </a>
-        </div>
-      </div>
-
-      <aside class="section-reveal rounded border border-white/12 bg-panel/80 p-4 shadow-violetGlow">
-        <div class="rounded border border-white/10 bg-[#090a0d]">
-          <div class="flex items-center gap-2 border-b border-white/10 px-4 py-3">
-            <span class="h-3 w-3 rounded-full bg-[#ff6b6b]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#ffcf5a]"></span>
-            <span class="h-3 w-3 rounded-full bg-[#38f5a8]"></span>
-            <span class="ml-3 font-mono text-xs text-slate-400">journey.cs</span>
-          </div>
-
-          <div class="space-y-3 overflow-hidden p-5 font-mono text-sm leading-7 text-slate-300 sm:text-base">
-            <p class="code-window-line" data-line="01"><span class="text-violet">public</span> <span class="text-cyan">class</span> Developer</p>
-            <p class="code-window-line" data-line="02">{</p>
-            <p class="code-window-line" data-line="03">  Name = <span class="text-ember">"Paul Alarba"</span>;</p>
-            <p class="code-window-line" data-line="04">  Stack = <span class="text-ember">".NET + Web UI"</span>;</p>
-            <p class="code-window-line" data-line="05">  Focus = <span class="text-ember">"Useful software"</span>;</p>
-            <p class="code-window-line" data-line="06">  Build(<span class="text-mint">clarity</span>, <span class="text-mint">speed</span>, <span class="text-mint">care</span>);</p>
-            <p class="code-window-line" data-line="07">}</p>
-          </div>
-        </div>
-      </aside>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section id="about" class="px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="mx-auto grid max-w-7xl items-center gap-12 lg:grid-cols-[0.92fr_1.08fr]">
-      <div class="section-reveal order-2 lg:order-1">
-        <div class="relative mx-auto aspect-[4/5] max-w-sm overflow-hidden rounded border border-white/12 bg-white/5 shadow-glow">
-          <img
-            src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-            alt="Developer workspace placeholder for Paul Alarba"
-            class="h-full w-full object-cover opacity-80"
-          />
-          <div class="absolute inset-x-0 bottom-0 border-t border-white/10 bg-ink/86 p-5 backdrop-blur-sm">
-            <p class="font-mono text-xs uppercase tracking-[0.22em] text-cyan">Profile image placeholder</p>
-            <p class="mt-2 text-sm font-medium text-slate-300">Replace with a professional portrait or branded avatar.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="section-reveal order-1 lg:order-2">
-        <p class="font-mono text-sm font-semibold uppercase tracking-[0.28em] text-violet">The Journey</p>
-        <h2 class="mt-4 text-4xl font-black tracking-normal text-slate-50 sm:text-5xl">My Story</h2>
-
-        <div class="mt-7 max-w-prose space-y-5 text-base font-medium leading-8 text-slate-300 sm:text-lg">
-          <p>
-            My path into development started with curiosity: one line, one bug, one small win at a time.
-            Over time, that curiosity became a craft: building applications that make information easier to use and workflows easier to trust.
-          </p>
-          <p>
-            I care about the full shape of a product, from database structure and backend reliability to the details people feel on the screen.
-            Good software should be understandable, durable, and quietly helpful.
-          </p>
-          <p id="story-extra" class="hidden">
-            Today, I focus on ASP.NET Core MVC, Entity Framework Core, JavaScript, and responsive UI systems.
-            I am driven by projects where the engineering is solid and the experience has a pulse.
-          </p>
-        </div>
-
-        <button
-          id="story-toggle"
-          type="button"
-          class="mt-7 inline-flex min-h-11 items-center gap-3 rounded border border-white/15 px-5 py-3 text-sm font-bold uppercase tracking-[0.14em] text-slate-100 transition hover:border-cyan/50 hover:text-cyan focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-ink"
-          aria-expanded="false"
-        >
-          <span>Read Full Story</span>
-          <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Projects -->
-  <section id="projects" class="px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-7xl">
-      <div class="section-reveal max-w-3xl">
-        <p class="font-mono text-sm font-semibold uppercase tracking-[0.28em] text-cyan">Selected Work</p>
-        <h2 class="mt-4 text-4xl font-black tracking-normal text-slate-50 sm:text-5xl">Projects built with purpose.</h2>
-        <p class="mt-5 text-lg font-medium leading-8 text-slate-300">
-          A placeholder collection for the MVC-backed project list. Each card can become a Razor partial later.
-        </p>
-      </div>
-
-      <div class="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        <article class="section-reveal hover-glow overflow-hidden rounded border border-white/12 bg-panel">
-          <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=900&q=80" alt="Code editor project placeholder" class="h-48 w-full object-cover opacity-85" />
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-slate-50">Portfolio MVC Platform</h3>
-            <p class="mt-3 min-h-20 text-sm font-medium leading-7 text-slate-300">
-              A content-ready portfolio system prepared for projects, testimonials, and contact messages.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="rounded-full bg-cyan/10 px-3 py-1 font-mono text-xs text-cyan">ASP.NET Core</span>
-              <span class="rounded-full bg-white/8 px-3 py-1 font-mono text-xs text-slate-300">MVC</span>
+    <!-- RIGHT PANEL (Background) -->
+    <div class="panel panel-right">
+        <div class="panel-content">
+            <div class="text-container">
+                <div class="icon-container">
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/01/svg"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Monitor -->
+                        <rect x="8" y="16" width="36" height="24" rx="2" stroke="currentColor"/>
+                        <path d="M16 40 v 6" stroke="currentColor"/>
+                        <path d="M36 40 v 6" stroke="currentColor"/>
+                        <path d="M12 46 h 28" stroke="currentColor"/>
+                        <!-- Code symbols -->
+                        <path d="M16 28 l -4 4 l 4 4" stroke="currentColor"/>
+                        <path d="M26 28 l 4 4 l -4 4" stroke="currentColor"/>
+                        <path d="M24 24 l -6 14" stroke="currentColor"/>
+                        <!-- Database -->
+                        <ellipse cx="48" cy="34" rx="10" ry="4" stroke="currentColor" fill="#1b2a38"/>
+                        <path d="M38 34 v 12 c 0 2.2 4.5 4 10 4 s 10 -1.8 10 -4 v -12"
+                              stroke="currentColor" fill="#1b2a38"/>
+                        <path d="M38 40 c 0 2.2 4.5 4 10 4 s 10 -1.8 10 -4"
+                              stroke="currentColor"/>
+                        <path d="M38 46 c 0 2.2 4.5 4 10 4 s 10 -1.8 10 -4"
+                              stroke="currentColor"/>
+                    </svg>
+                </div>
+                <h1 class="main-title">WEB<br>DEVELOPER</h1>
+                <p class="sub-text">
+                    Delivering interactive experiences with<br>MVC, Razor, and responsive design
+                </p>
+                <a href="#contact" class="side-btn btn-light">
+                    Talk about a build <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
-            <a href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan hover:text-slate-50">
-              View Case Study <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
 
-        <article class="section-reveal hover-glow overflow-hidden rounded border border-white/12 bg-panel">
-          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=900&q=80" alt="Analytics dashboard placeholder" class="h-48 w-full object-cover opacity-85" />
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-slate-50">Data Dashboard</h3>
-            <p class="mt-3 min-h-20 text-sm font-medium leading-7 text-slate-300">
-              A responsive dashboard concept for viewing metrics, records, and operational insights.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="rounded-full bg-violet/10 px-3 py-1 font-mono text-xs text-violet">SQL</span>
-              <span class="rounded-full bg-white/8 px-3 py-1 font-mono text-xs text-slate-300">EF Core</span>
+            <!-- Developer Image -->
+            <div class="image-container">
+                <img src="/Public/image/ProfileRobotic.png" alt="Developer Paul"
+                     class="profile-img" />
             </div>
-            <a href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan hover:text-slate-50">
-              Learn More <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
 
-        <article class="section-reveal hover-glow overflow-hidden rounded border border-white/12 bg-panel">
-          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=80" alt="Laptop development project placeholder" class="h-48 w-full object-cover opacity-85" />
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-slate-50">Booking Workflow</h3>
-            <p class="mt-3 min-h-20 text-sm font-medium leading-7 text-slate-300">
-              A structured booking interface concept with clean states and mobile-first interactions.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="rounded-full bg-mint/10 px-3 py-1 font-mono text-xs text-mint">JavaScript</span>
-              <span class="rounded-full bg-white/8 px-3 py-1 font-mono text-xs text-slate-300">Tailwind</span>
+            <!-- Shapes -->
+            <div class="shape circle c2"></div>
+            <div class="shape triangle-outline t3">
+                <svg viewBox="0 0 24 24"><polygon points="12,2 22,20 2,20"/></svg>
             </div>
-            <a href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan hover:text-slate-50">
-              View Case Study <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
-
-        <article class="section-reveal hover-glow overflow-hidden rounded border border-white/12 bg-panel">
-          <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=900&q=80" alt="Terminal code placeholder" class="h-48 w-full object-cover opacity-85" />
-          <div class="p-6">
-            <h3 class="text-xl font-extrabold text-slate-50">API Integration Kit</h3>
-            <p class="mt-3 min-h-20 text-sm font-medium leading-7 text-slate-300">
-              A backend-focused project placeholder for services, validation, and API-ready architecture.
-            </p>
-            <div class="mt-5 flex flex-wrap gap-2">
-              <span class="rounded-full bg-ember/10 px-3 py-1 font-mono text-xs text-ember">C#</span>
-              <span class="rounded-full bg-white/8 px-3 py-1 font-mono text-xs text-slate-300">REST</span>
+            <div class="shape squiggle s1">
+                <svg viewBox="0 0 40 40">
+                    <path d="M4 36 Q 10 20, 20 28 T 36 12"/>
+                </svg>
             </div>
-            <a href="#" class="mt-6 inline-flex items-center gap-2 text-sm font-bold text-cyan hover:text-slate-50">
-              Learn More <i class="fa-solid fa-arrow-right-long" aria-hidden="true"></i>
-            </a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- Skills -->
-  <section id="skills" class="px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="mx-auto max-w-7xl">
-      <div class="section-reveal max-w-3xl">
-        <p class="font-mono text-sm font-semibold uppercase tracking-[0.28em] text-violet">Toolkit</p>
-        <h2 class="mt-4 text-4xl font-black tracking-normal text-slate-50 sm:text-5xl">Skills and technologies.</h2>
-      </div>
-
-      <div class="section-reveal mt-10 flex flex-wrap gap-3">
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">C#</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">.NET</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">ASP.NET Core</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">Entity Framework Core</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">SQL</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">JavaScript</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">Tailwind CSS</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">HTML5</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">CSS3</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">Git</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">Razor Views</span>
-        <span class="rounded-full border border-white/12 bg-white/7 px-4 py-2 font-mono text-sm font-semibold text-slate-200 transition hover:border-cyan/50 hover:bg-cyan/12 hover:text-cyan">Responsive UI</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" class="px-5 py-16 sm:px-6 lg:px-8 lg:py-24">
-    <div class="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[0.88fr_1.12fr]">
-      <div class="section-reveal">
-        <p class="font-mono text-sm font-semibold uppercase tracking-[0.28em] text-cyan">Say Hello</p>
-        <h2 class="mt-4 text-4xl font-black tracking-normal text-slate-50 sm:text-5xl">Let's Talk</h2>
-        <p class="mt-5 max-w-prose text-lg font-medium leading-8 text-slate-300">
-          Have a project in mind or just want to connect? Reach out.
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-3">
-          <a href="#" class="inline-flex min-h-12 min-w-12 items-center justify-center rounded border border-white/15 bg-white/5 text-xl text-slate-100 transition hover:border-cyan/50 hover:text-cyan" aria-label="GitHub">
-            <i class="fab fa-github" aria-hidden="true"></i>
-          </a>
-          <a href="#" class="inline-flex min-h-12 min-w-12 items-center justify-center rounded border border-white/15 bg-white/5 text-xl text-slate-100 transition hover:border-cyan/50 hover:text-cyan" aria-label="LinkedIn">
-            <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-          </a>
-          <a href="#" class="inline-flex min-h-12 min-w-12 items-center justify-center rounded border border-white/15 bg-white/5 text-xl text-slate-100 transition hover:border-cyan/50 hover:text-cyan" aria-label="X or Twitter">
-            <i class="fab fa-x-twitter" aria-hidden="true"></i>
-          </a>
-          <a href="mailto:hello@example.com" class="inline-flex min-h-12 items-center gap-3 rounded border border-white/15 bg-white/5 px-4 text-sm font-bold text-slate-100 transition hover:border-violet/50 hover:text-violet">
-            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
-            <span>hello@example.com</span>
-          </a>
         </div>
-      </div>
+    </div>
 
-      <form id="contact-form" class="section-reveal rounded border border-white/12 bg-panel p-5 shadow-glow sm:p-7">
-        <div class="grid gap-5 sm:grid-cols-2">
-          <label class="block">
-            <span class="text-sm font-bold text-slate-200">Name</span>
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              class="mt-2 min-h-12 w-full rounded border border-white/15 bg-black/40 px-4 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan focus:ring-2 focus:ring-cyan/35"
-            />
-          </label>
+    <!-- LEFT PANEL (Foreground mask) -->
+    <div class="panel panel-left" id="leftPanel">
+        <div class="split-line"></div>
+        <div class="panel-content">
+            <div class="text-container">
+                <div class="icon-container">
+                    <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/01/svg"
+                         stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Left node -->
+                        <path d="M12 28 l -8 -4 l 8 -4 l 8 4 z" stroke="currentColor"/>
+                        <path d="M4 24 v 8 l 8 4 v -8" stroke="currentColor"/>
+                        <path d="M20 24 v 8 l -8 4" stroke="currentColor"/>
+                        <!-- Top node -->
+                        <path d="M28 16 l -8 -4 l 8 -4 l 8 4 z" stroke="currentColor"/>
+                        <path d="M20 12 v 8 l 8 4 v -8" stroke="currentColor"/>
+                        <path d="M36 12 v 8 l -8 4" stroke="currentColor"/>
+                        <!-- Right node (with lock) -->
+                        <path d="M44 28 l -8 -4 l 8 -4 l 8 4 z" stroke="currentColor"/>
+                        <path d="M36 24 v 12 l 8 4 v -12" stroke="currentColor"/>
+                        <path d="M52 24 v 12 l -8 4" stroke="currentColor"/>
+                        <!-- Connections -->
+                        <path d="M16 22 l 8 -6" stroke="currentColor"/>
+                        <path d="M32 22 l 8 -6" stroke="currentColor"/>
+                        <path d="M12 36 v 12" stroke="currentColor"/>
+                        <!-- Bottom Node -->
+                        <path d="M12 56 l -8 -4 l 8 -4 l 8 4 z" stroke="currentColor"/>
+                        <path d="M4 52 v 8 l 8 4 v -8" stroke="currentColor"/>
+                        <path d="M20 52 v 8 l -8 4" stroke="currentColor"/>
+                        <!-- Lock icon -->
+                        <rect x="40" y="32" width="8" height="6" rx="1"
+                              fill="white" stroke="currentColor"/>
+                        <path d="M42 32 v -2 a 2 2 0 0 1 4 0 v 2"
+                              stroke="currentColor"/>
+                        <circle cx="44" cy="35" r="1"
+                                fill="currentColor" stroke="none"/>
+                    </svg>
+                </div>
+                <h1 class="main-title">BLOCKCHAIN<br>INNOVATOR</h1>
+                <p class="sub-text">
+                    Building secure, decentralized solutions<br>
+                    with smart contracts and Web3
+                </p>
+                <a href="#work" class="side-btn btn-dark">
+                    View blockchain work <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
 
-          <label class="block">
-            <span class="text-sm font-bold text-slate-200">Email</span>
-            <input
-              type="email"
-              name="email"
-              placeholder="you@example.com"
-              class="mt-2 min-h-12 w-full rounded border border-white/15 bg-black/40 px-4 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan focus:ring-2 focus:ring-cyan/35"
-            />
-          </label>
+            <!-- Designer Image -->
+            <div class="image-container">
+                <img src="/Public/image/Profile.png" alt="Designer Paul"
+                     class="profile-img" />
+            </div>
+
+            <!-- Shapes -->
+            <div class="shape circle c1"></div>
+            <div class="shape triangle-outline t1">
+                <svg viewBox="0 0 24 24"><polygon points="12,2 22,20 2,20"/></svg>
+            </div>
+            <div class="shape line l1"></div>
+            <div class="shape triangle-outline t2">
+                <svg viewBox="0 0 24 24"><polygon points="12,2 22,20 2,20"/></svg>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT SECTION -->
+<section id="about" class="about-section">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-num">01.</span>
+            <h2 class="section-title">About Me</h2>
+            <div class="section-line"></div>
         </div>
 
-        <label class="mt-5 block">
-          <span class="text-sm font-bold text-slate-200">Message</span>
-          <textarea
-            name="message"
-            rows="6"
-            placeholder="Tell me about the project..."
-            class="mt-2 w-full rounded border border-white/15 bg-black/40 px-4 py-3 text-slate-100 outline-none transition placeholder:text-slate-500 focus:border-cyan focus:ring-2 focus:ring-cyan/35"
-          ></textarea>
-        </label>
+        <div class="about-grid">
+            <div class="about-left">
+                <h3 class="subsection-title">
+                    <i class="fa-regular fa-user text-accent"></i> Background
+                </h3>
+                <p>
+                    Currently a <span class="text-accent">3rd Year BSIT student</span> at the
+                    <strong>University of Cebu</strong>. I have <span class="text-accent">2+ years</span>
+                    of programming experience through internships, hackathons, personal projects,
+                    and work for organizations.
+                </p>
+                <p>
+                    I believe code should be as <strong>maintainable as it is functional</strong>.
+                    By prioritizing <strong>modular, reusable code practices</strong>, I
+                    <span class="text-accent">accelerate the path from concept to production</span>,
+                    delivering <strong>scalable, heavily‑functional systems</strong> that are
+                    <strong>built to last</strong>. I thrive on the challenge of integrating
+                    <strong>AI/ML</strong> to transform standard applications into
+                    <strong>smart, competitive products</strong>.
+                </p>
+                <p>
+                    I love programming because it is a <strong>craft</strong> wherein you build
+                    products to create <strong>real‑world solutions</strong>.
+                </p>
+            </div>
+            <div class="about-right">
+                <h3 class="subsection-title">
+                    <i class="fa-solid fa-code text-accent"></i> Tech Stack
+                </h3>
+                <div class="tech-chips">
+                    <span class="chip"><i class="fa-brands fa-js tech-icon ts-color"></i> TypeScript</span>
+                    <span class="chip"><i class="fa-brands fa-react tech-icon react-color"></i> React</span>
+                    <span class="chip"><i class="fa-brands fa-node-js tech-icon node-color"></i> Node.js</span>
+                    <span class="chip"><i class="fa-brands fa-node tech-icon"></i> Express</span>
+                    <span class="chip"><i class="fa-brands fa-envira tech-icon mongo-color"></i> MongoDB</span>
+                    <span class="chip"><i class="fa-solid fa-database tech-icon pg-color"></i> PostgreSQL</span>
+                    <span class="chip"><i class="fa-solid fa-wind tech-icon tailwind-color"></i> Tailwind</span>
+                    <span class="chip"><i class="fa-brands fa-figma tech-icon framer-color"></i> Framer</span>
+                </div>
 
-        <button
-          type="submit"
-          class="mt-6 inline-flex min-h-12 w-full items-center justify-center gap-3 rounded border border-cyan/60 bg-cyan px-6 py-3 text-sm font-extrabold uppercase tracking-[0.14em] text-ink shadow-glow transition hover:-translate-y-1 hover:bg-cyan/90 focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-panel sm:w-auto"
-        >
-          Send Message
-          <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
-        </button>
-
-        <p id="form-note" class="mt-4 hidden text-sm font-medium text-mint">
-          Placeholder form submitted locally. Backend logic will be wired in ASP.NET Core MVC.
-        </p>
-      </form>
+                <h3 class="subsection-title mt-2rem">
+                    <i class="fa-solid fa-bolt text-accent"></i> Currently Learning
+                </h3>
+                <ul class="learning-list">
+                    <li>Next.js</li>
+                    <li>Relational Database Design</li>
+                    <li>Cloud Services</li>
+                    <li>AI/ML Integration</li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </section>
-</main>
+</section>
 
-<footer class="border-t border-white/10 px-5 py-8 sm:px-6 lg:px-8">
-  <div class="mx-auto flex max-w-7xl flex-col gap-4 text-sm font-medium text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-    <p>&copy; <span id="current-year"></span> Paul Alarba. All rights reserved.</p>
-    <p class="font-mono text-xs uppercase tracking-[0.22em] text-slate-500">Built for ASP.NET Core MVC integration</p>
-  </div>
-</footer>
+@section Scripts {
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const wrapper = document.getElementById('splitWrapper');
+            const leftPanel = document.getElementById('leftPanel');
+            const hint = document.getElementById('mobileHint');
+            const images = document.querySelectorAll('.profile-img');
+            const header = document.getElementById('main-header');
 
-<button
-  id="back-to-top"
-  type="button"
-  class="back-to-top fixed bottom-5 right-5 z-40 inline-flex min-h-12 min-w-12 items-center justify-center rounded border border-cyan/45 bg-ink/90 text-cyan shadow-glow backdrop-blur-md transition hover:-translate-y-1 hover:bg-cyan hover:text-ink focus:outline-none focus:ring-2 focus:ring-cyan focus:ring-offset-2 focus:ring-offset-ink"
-  aria-label="Back to top"
->
-  <i class="fa-solid fa-arrow-up" aria-hidden="true"></i>
-</button>
+            // Header scroll effect
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                }
+            });
+
+            let currentX = window.innerWidth / 2;
+            let targetX = window.innerWidth / 2;
+            let isMobile = window.innerWidth <= 768;
+
+            // Parallax variables
+            let targetParallaxX = 0;
+            let targetParallaxY = 0;
+            let currentParallaxX = 0;
+            let currentParallaxY = 0;
+
+            window.addEventListener('resize', () => {
+                isMobile = window.innerWidth <= 768;
+                leftPanel.style.transition = isMobile ? 'width 0.4s ease-out' : 'none';
+            });
+
+            wrapper.addEventListener('mousemove', (e) => {
+                if (!isMobile) {
+                    targetX = e.clientX;
+
+                    const centerX = window.innerWidth / 2;
+                    const centerY = window.innerHeight / 2;
+                    targetParallaxX = (e.clientX - centerX) * 0.03;
+                    targetParallaxY = (e.clientY - centerY) * 0.03;
+                }
+            });
+
+            // Mobile tap‑to‑swap
+            wrapper.addEventListener('click', () => {
+                if (isMobile) {
+                    if (hint) hint.style.display = 'none';
+                    targetX = (targetX > window.innerWidth / 2) ? 0 : window.innerWidth;
+                    leftPanel.style.width = targetX + 'px';
+                }
+            });
+
+            function animate() {
+                if (!isMobile) {
+                    currentX += (targetX - currentX) * 0.04;
+                    leftPanel.style.width = currentX + 'px';
+
+                    currentParallaxX += (targetParallaxX - currentParallaxX) * 0.05;
+                    currentParallaxY += (targetParallaxY - currentParallaxY) * 0.05;
+                    images.forEach(img => {
+                        img.style.transform = `translate(${currentParallaxX}px, ${currentParallaxY}px)`;
+                    });
+                }
+                requestAnimationFrame(animate);
+            }
+            animate();
+        });
+    </script>
+}

@@ -1,4 +1,5 @@
-﻿document.addEventListener("DOMContentLoaded", function () {
+﻿// site.js - Interactive functionality
+document.addEventListener("DOMContentLoaded", function () {
   const header = document.getElementById("site-header");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -11,6 +12,14 @@
 
   if (currentYear) {
     currentYear.textContent = new Date().getFullYear();
+  }
+
+  if (header) {
+    const updateHeader = () => {
+      header.classList.toggle("scrolled", window.scrollY > 12);
+    };
+    updateHeader();
+    window.addEventListener("scroll", updateHeader, { passive: true });
   }
 
   function closeMobileMenu() {
@@ -35,19 +44,16 @@
     });
   }
 
+  // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(function (link) {
     link.addEventListener("click", function (event) {
       const targetId = link.getAttribute("href");
       const target = document.querySelector(targetId);
-
       if (!target) return;
-
       event.preventDefault();
       closeMobileMenu();
-
       const headerOffset = header ? header.offsetHeight : 0;
       const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerOffset + 2;
-
       window.scrollTo({
         top: targetPosition,
         behavior: "smooth"
@@ -55,6 +61,7 @@
     });
   });
 
+  // Read more / show less toggle
   if (storyToggle && storyExtra) {
     storyToggle.addEventListener("click", function () {
       const isExpanded = storyToggle.getAttribute("aria-expanded") === "true";
@@ -62,29 +69,30 @@
       storyToggle.setAttribute("aria-expanded", String(!isExpanded));
       const buttonText = storyToggle.querySelector("span");
       const buttonIcon = storyToggle.querySelector("i");
-
       if (buttonText) {
         buttonText.textContent = isExpanded ? "Read Full Story" : "Show Less";
       }
-
       if (buttonIcon) {
         buttonIcon.className = isExpanded ? "fa-solid fa-arrow-right-long" : "fa-solid fa-arrow-up-long";
       }
     });
   }
 
+  // Contact form demo message
   if (contactForm && formNote) {
     contactForm.addEventListener("submit", function (event) {
       event.preventDefault();
       formNote.classList.remove("hidden");
+      // Optional: reset after a few seconds
+      setTimeout(() => formNote.classList.add("hidden"), 3000);
     });
   }
 
+  // Back to top button visibility
   if (backToTop) {
     window.addEventListener("scroll", function () {
       backToTop.classList.toggle("visible", window.scrollY > 300);
     });
-
     backToTop.addEventListener("click", function () {
       window.scrollTo({
         top: 0,
@@ -93,12 +101,13 @@
     });
   }
 
+  // Intersection Observer for section reveals
   const revealObserver = new IntersectionObserver(
-    function (entries, observer) {
+    function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
           entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
+          revealObserver.unobserve(entry.target);
         }
       });
     },
@@ -112,15 +121,14 @@
     revealObserver.observe(element);
   });
 
+  // Active nav link highlighting
   const navLinks = Array.from(document.querySelectorAll(".nav-link"));
   const sections = Array.from(document.querySelectorAll("main section[id]"));
-
   if (navLinks.length && sections.length) {
     const activeObserver = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (!entry.isIntersecting) return;
-
           const id = entry.target.getAttribute("id");
           navLinks.forEach(function (link) {
             link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
@@ -132,12 +140,12 @@
         rootMargin: "-76px 0px -42% 0px"
       }
     );
-
     sections.forEach(function (section) {
       activeObserver.observe(section);
     });
   }
 
+  // Close mobile menu on ESC key
   document.addEventListener("keydown", function (event) {
     if (event.key === "Escape") {
       closeMobileMenu();
