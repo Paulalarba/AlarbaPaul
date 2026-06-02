@@ -140,50 +140,70 @@
 <!-- ABOUT SECTION -->
 <section id="about" class="about-section">
     <div class="container">
-        <div class="section-header">
+        <div class="section-header section-reveal">
             <span class="section-num">01.</span>
             <h2 class="section-title">About Me</h2>
             <div class="section-line"></div>
         </div>
 
         <div class="about-grid">
-            <div class="about-left">
+            <div class="about-left section-reveal">
                 <h3 class="subsection-title">
                     <i class="fa-regular fa-user text-accent"></i> Background
                 </h3>
                 <p>
-                    Currently a <span class="text-accent">3rd Year BSIT student</span> at the
-                    <strong>University of Cebu</strong>. I have <span class="text-accent">2+ years</span>
-                    of programming experience through internships, hackathons, personal projects,
-                    and work for organizations.
+                    I am a <span class="text-accent">4th-year Information Technology student</span> at the
+                    <strong>University of Cebu</strong> with backend experience using
+                    <strong>ASP.NET Core MVC</strong>, <strong>Entity Framework</strong>, and SQL.
                 </p>
+
                 <p>
-                    I believe code should be as <strong>maintainable as it is functional</strong>.
-                    By prioritizing <strong>modular, reusable code practices</strong>, I
-                    <span class="text-accent">accelerate the path from concept to production</span>,
-                    delivering <strong>scalable, heavily‑functional systems</strong> that are
-                    <strong>built to last</strong>. I thrive on the challenge of integrating
-                    <strong>AI/ML</strong> to transform standard applications into
-                    <strong>smart, competitive products</strong>.
+                    Through personal projects, I have helped
+                    improve applications by building authentication, managing databases,
+                    and using Git for version control.
                 </p>
+
                 <p>
-                    I love programming because it is a <strong>craft</strong> wherein you build
-                    products to create <strong>real‑world solutions</strong>.
+                    I believe good software should be scalable and easy to update, so I use
+                    design patterns, clean architecture, and reusable code to make systems
+                    easier to extend and maintain.
+                </p>
+
+                <p>
+                    My goal is to create solutions that work well, remain clear, and support
+                    teamwork over time.
+                </p>
+
+                <p>
+                    I love solving problems with technology — whether it means creating login
+                    systems, optimizing database queries, or improving the user experience.
                 </p>
             </div>
-            <div class="about-right">
+            <div class="about-right section-reveal">
                 <h3 class="subsection-title">
                     <i class="fa-solid fa-code text-accent"></i> Tech Stack
                 </h3>
                 <div class="tech-chips">
-                    <span class="chip"><i class="fa-brands fa-js tech-icon ts-color"></i> TypeScript</span>
-                    <span class="chip"><i class="fa-brands fa-react tech-icon react-color"></i> React</span>
-                    <span class="chip"><i class="fa-brands fa-node-js tech-icon node-color"></i> Node.js</span>
-                    <span class="chip"><i class="fa-brands fa-node tech-icon"></i> Express</span>
-                    <span class="chip"><i class="fa-brands fa-envira tech-icon mongo-color"></i> MongoDB</span>
+                    <span class="chip"><i class="fa-brands fa-dot-net tech-icon"></i> .NET Framework</span>
+                    <span class="chip"><i class="fa-solid fa-code tech-icon"></i> ASP.NET Core MVC 10.0</span>
                     <span class="chip"><i class="fa-solid fa-database tech-icon pg-color"></i> PostgreSQL</span>
+                    <span class="chip"><i class="fa-brands fa-react tech-icon react-color"></i> React</span>
+                    <span class="chip"><i class="fa-solid fa-layer-group tech-icon"></i> MVC</span>
                     <span class="chip"><i class="fa-solid fa-wind tech-icon tailwind-color"></i> Tailwind</span>
-                    <span class="chip"><i class="fa-brands fa-figma tech-icon framer-color"></i> Framer</span>
+                    <span class="chip"><i class="fa-brands fa-node-js tech-icon node-color"></i> Node.js</span>
+                </div>
+
+                <h3 class="subsection-title mt-2rem">
+                    <i class="fa-solid fa-bolt text-accent"></i> Blockchain
+                </h3>
+                <div class="tech-chips">
+                    <span class="chip"><i class="fa-solid fa-network-wired tech-icon"></i> Polkadot</span>
+                    <span class="chip"><i class="fa-solid fa-ethereum tech-icon"></i> Ethereum</span>
+                    <span class="chip"><i class="fa-solid fa-file-code tech-icon"></i> Solidity</span>
+                    <span class="chip"><i class="fa-brands fa-js tech-icon ts-color"></i> Web3.js</span>
+                    <span class="chip"><i class="fa-solid fa-hammer tech-icon"></i> Hardhat</span>
+                    <span class="chip"><i class="fa-solid fa-cloud-arrow-up tech-icon"></i> IPFS</span>
+                    <span class="chip"><i class="fa-brands fa-ethereum tech-icon"></i> MetaMask</span>
                 </div>
 
                 <h3 class="subsection-title mt-2rem">
@@ -206,7 +226,7 @@
             const wrapper = document.getElementById('splitWrapper');
             const leftPanel = document.getElementById('leftPanel');
             const hint = document.getElementById('mobileHint');
-            const images = document.querySelectorAll('.profile-img');
+            const images = document.querySelectorAll('.image-container');
             const header = document.getElementById('main-header');
 
             // Header scroll effect
@@ -255,13 +275,16 @@
 
             function animate() {
                 if (!isMobile) {
-                    currentX += (targetX - currentX) * 0.04;
+                    currentX += (targetX - currentX) * 0.1;
                     leftPanel.style.width = currentX + 'px';
 
-                    currentParallaxX += (targetParallaxX - currentParallaxX) * 0.05;
-                    currentParallaxY += (targetParallaxY - currentParallaxY) * 0.05;
-                    images.forEach(img => {
-                        img.style.transform = `translate(${currentParallaxX}px, ${currentParallaxY}px)`;
+                    currentParallaxX += (targetParallaxX - currentParallaxX) * 0.08;
+                    currentParallaxY += (targetParallaxY - currentParallaxY) * 0.08;
+                    
+                    // We don't need to force container width here anymore as CSS handles 100vw,
+                    // but we do apply the parallax transform to the image or container.
+                    images.forEach(container => {
+                        container.style.transform = `translate(${currentParallaxX}px, ${currentParallaxY}px)`;
                     });
                 }
                 requestAnimationFrame(animate);
