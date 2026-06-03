@@ -184,58 +184,129 @@
             </div>
         </div>
 
-        <div id="work" class="about-projects section-reveal">
-            <h3 class="section-subtitle">Featured Projects</h3>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="/Public/image/ProjectFitTrack.png" alt="FitTrack Project">
+        <div id="work" class="about-projects">
+            <section class="featured-projects-section">
+                <div class="fp-header section-reveal">
+                    <span class="fp-number">02.</span>
+                    <h2 class="fp-title">Featured Works</h2>
+                    <div class="fp-divider"></div>
+                </div>
+
+                <!-- PROJECT 1: SugboGo -->
+                <div class="fp-grid section-reveal">
+                    <div class="fp-showcase" aria-label="SugboGo project screenshot">
+                        <img src="/Public/image/ProjectSugboGo.png" alt="SugboGo travel platform interface">
                     </div>
-                    <div class="project-info">
-                        <h4>FitTrack</h4>
-                        <p>A comprehensive fitness tracking application built with ASP.NET Core MVC and PostgreSQL, featuring workout logging and progress visualization.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">ASP.NET Core</span>
-                            <span class="project-tag">MVC</span>
-                            <span class="project-tag">PostgreSQL</span>
-                            <span class="project-tag">Entity Framework</span>
+                    <div class="fp-info">
+                        <h3 class="fp-project-title">The Ultimate Cebu Experience <span>SugboGo</span></h3>
+                        <div class="fp-description-card">
+                            <p>
+                                SugboGo is a Cebu travel ecosystem for explorers, local partners, and administrators.
+                                It supports <strong>vibe-based destination discovery</strong>, personalized booking,
+                                partner assignment tracking, QR traveler verification, and a command center for
+                                managing regional spots, bookings, and operations.
+                            </p>
+                        </div>
+                        <div class="fp-tech-stack">
+                            <span class="fp-badge">C# 13</span>
+                            <span class="fp-badge">ASP.NET Core 10</span>
+                            <span class="fp-badge">PostgreSQL</span>
+                            <span class="fp-badge">Supabase</span>
+                            <span class="fp-badge">RBAC</span>
+                        </div>
+                        <div class="fp-actions">
+                            <a href="https://github.com/Paulalarba/SugboGo.git" class="fp-action-icon" aria-label="Open SugboGo GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/Paulalarba/SugboGo.git" class="fp-action-icon" aria-label="Open SugboGo project link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 (Placeholder) -->
-                <div class="project-card">
-                    <div class="project-image" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa-solid fa-link" style="font-size: 3rem; color: #94a3b8;"></i>
+                <!-- PROJECT 2: FitTrack -->
+                <div class="fp-grid fp-grid-reverse section-reveal">
+                    <div class="fp-showcase" aria-label="FitTrack project screenshot">
+                        <img src="/Public/image/ProjectFitTrack.png" alt="FitTrack gym membership and wallet interface">
                     </div>
-                    <div class="project-info">
-                        <h4>Decentralized Voting</h4>
-                        <p>A secure blockchain-based voting system using Solidity smart contracts on the Ethereum network to ensure transparency and immutability.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Solidity</span>
-                            <span class="project-tag">Web3.js</span>
-                            <span class="project-tag">Ethereum</span>
+                    <div class="fp-info">
+                        <h3 class="fp-project-title">Gym Membership & Wallet <span>FitTrack</span></h3>
+                        <div class="fp-description-card">
+                            <p>
+                                FitTrack streamlines gym operations with member portals, admin dashboards,
+                                <strong>tamper-proof QR check-ins</strong>, and a secure wallet ledger.
+                                Members can fund accounts, transfer balances, renew memberships, and manage
+                                profiles while staff verify access in real time.
+                            </p>
+                        </div>
+                        <div class="fp-tech-stack">
+                            <span class="fp-badge">ASP.NET Core 10</span>
+                            <span class="fp-badge">QR Security</span>
+                            <span class="fp-badge">Data Protection API</span>
+                            <span class="fp-badge">EF Core 10</span>
+                            <span class="fp-badge">Identity</span>
+                        </div>
+                        <div class="fp-actions">
+                            <a href="https://github.com/Paulalarba/FitTrack-.git" class="fp-action-icon" aria-label="Open FitTrack GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/Paulalarba/FitTrack-.git" class="fp-action-icon" aria-label="Open FitTrack project link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 3 (Placeholder) -->
-                <div class="project-card">
-                    <div class="project-image" style="background: #e2e8f0; display:flex; align-items:center; justify-content:center;">
-                        <i class="fa-solid fa-shop" style="font-size: 3rem; color: #94a3b8;"></i>
+                <!-- PROJECT 3: Sit-in Monitoring -->
+                <div class="fp-grid section-reveal">
+                    <div class="fp-showcase" aria-label="UC CCS Sit-In project screenshot">
+                        <img src="/Public/image/ProjectSitInMonitoringSystem.png" alt="UC CCS sit-in monitoring system interface">
                     </div>
-                    <div class="project-info">
-                        <h4>PolkaMarket</h4>
-                        <p>An NFT marketplace prototype built on the Polkadot ecosystem, exploring cross-chain interoperability and digital asset management.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Polkadot</span>
-                            <span class="project-tag">Substrate</span>
-                            <span class="project-tag">Rust</span>
+                    <div class="fp-info">
+                        <h3 class="fp-project-title">UC CCS Sit-in <span>Monitoring</span></h3>
+                        <div class="fp-description-card">
+                            <p>
+                                A laboratory management system for student reservations, active sit-in sessions,
+                                and <strong>real-time occupancy tracking</strong>. It gives students seat booking
+                                tools while administrators manage approvals, lab PCs, announcements, reports,
+                                and live session updates.
+                            </p>
+                        </div>
+                        <div class="fp-tech-stack">
+                            <span class="fp-badge">SignalR</span>
+                            <span class="fp-badge">.NET 10</span>
+                            <span class="fp-badge">PostgreSQL</span>
+                            <span class="fp-badge">Seat Reservation</span>
+                            <span class="fp-badge">Identity</span>
+                        </div>
+                        <div class="fp-actions">
+                            <a href="https://github.com/Paulalarba/UcCcsSitIn.git" class="fp-action-icon" aria-label="Open UC CCS Sit-In GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/Paulalarba/UcCcsSitIn.git" class="fp-action-icon" aria-label="Open UC CCS Sit-In project link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
                 </div>
-            </div>
+
+                <!-- PROJECT 4: SportsStore -->
+                <div class="fp-grid fp-grid-reverse section-reveal">
+                    <div class="fp-showcase" aria-label="SportsStore project screenshot">
+                        <img src="/Public/image/ProjectAthletica.png" alt="SportsStore online retail prototype interface">
+                    </div>
+                    <div class="fp-info">
+                        <h3 class="fp-project-title">Online Retail Prototype <span>SportsStore</span></h3>
+                        <div class="fp-description-card">
+                            <p>
+                                A complete e-commerce workflow demonstrating <strong>product browsing</strong>, 
+                                <strong>cart management</strong>, and database-backed checkout. Focused on 
+                                clean <strong>server-side session state</strong> and EF Core persistence.
+                            </p>
+                        </div>
+                        <div class="fp-tech-stack">
+                            <span class="fp-badge">ASP.NET Core MVC</span>
+                            <span class="fp-badge">EF Core</span>
+                            <span class="fp-badge">SQL Server</span>
+                            <span class="fp-badge">Session State</span>
+                            <span class="fp-badge">Repository Pattern</span>
+                        </div>
+                        <div class="fp-actions">
+                            <a href="https://github.com/Paulalarba/SportsStore.git" class="fp-action-icon" aria-label="Open SportsStore GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
+                            <a href="https://github.com/Paulalarba/SportsStore.git" class="fp-action-icon" aria-label="Open SportsStore project link" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </section>
