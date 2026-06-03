@@ -1,14 +1,38 @@
 using Microsoft.AspNetCore.Mvc;
 using PaulAlarba.Models;
+using PaulAlarba.Services;
 using System.Diagnostics;
 
 namespace PaulAlarba.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly ContactMessageStore _contactMessageStore;
+
+        public HomeController(ContactMessageStore contactMessageStore)
+        {
+            _contactMessageStore = contactMessageStore;
+        }
+
+        [HttpGet]
         public IActionResult Index()
         {
-            return View();
+            return View(new HomeIndexViewModel());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Contact(HomeIndexViewModel model, CancellationToken cancellationToken)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model);
+            }
+
+            await _contactMessageStore.SaveAsync(model.Contact, cancellationToken);
+            TempData["ContactStatus"] = "Your message has been sent. I’ll get back to you soon.";
+
+            return Redirect($"{Url.Action(nameof(Index), "Home")}#contact");
         }
 
         public IActionResult Privacy()
