@@ -448,12 +448,20 @@ body {
 .about-intro {
     text-align: center;
     max-width: 800px;
-    margin: 0 auto 4rem;
+    margin: 0 auto 3rem;
+}
+.section-kicker {
+    color: var(--accent);
+    font-size: 0.85rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.55rem;
+    text-transform: uppercase;
 }
 .about-intro h2 {
     font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 800;
-    margin-bottom: 2rem;
+    margin-bottom: 1.1rem;
     line-height: 1.2;
 }
 .about-intro p {
@@ -511,14 +519,85 @@ body {
 .section-subtitle {
     font-size: 2rem;
     font-weight: 800;
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
     margin-top: 2rem;
+}
+
+.tech-stack-header {
+    margin: 0 0 2.25rem;
+}
+
+.tech-stack-title {
+    margin: 0;
 }
 
 .about-projects {
     margin-top: 4rem;
 }
+
+.education-section {
+    padding: 0 0 2rem;
+}
+
+.education-header {
+    margin: 0 0 2rem;
+}
+
+.education-title {
+    margin: 0;
+}
+
+.education-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.1rem;
+}
+
+.education-item {
+    padding: 1.15rem 1.25rem;
+    border: 1px solid #e5e7eb;
+    background: #ffffff;
+    color: var(--text-dark);
+}
+
+.education-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem 1rem;
+    margin-bottom: 0.65rem;
+}
+
+.education-level {
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.education-years {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.education-item h3 {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.25;
+    margin: 0;
+}
+
+.education-item p {
+    margin: 0.45rem 0 0;
+    color: #475569;
+    font-size: 0.98rem;
+    font-weight: 600;
+}
+
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -584,7 +663,7 @@ body {
 /* --- Featured Projects Section --- */
 
 .featured-projects-section {
-    padding: 8rem 5%;
+    padding: 8rem 0;
     background-color: #ffffff;
     color: var(--text-dark);
 }
@@ -786,7 +865,7 @@ body {
 
 @media (max-width: 768px) {
     .featured-projects-section {
-        padding: 6rem 5%;
+        padding: 6rem 0;
     }
 
     .fp-grid {
@@ -825,6 +904,14 @@ body {
 
     .fp-tech-stack {
         justify-content: flex-start;
+    }
+
+    .education-list {
+        grid-template-columns: 1fr;
+    }
+
+    .education-item {
+        padding: 1rem 1.1rem;
     }
 }
 
