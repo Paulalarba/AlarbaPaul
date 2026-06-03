@@ -3,14 +3,20 @@
 }
 <header id="main-header">
     <div class="nav-container">
-        <a href="/" class="logo">Paul<span>Alarba</span></a>
-        <nav class="nav-menu">
+        <a href="/" class="logo" id="logo-link">
+            <img src="/Public/image/logo.png" alt="Paul Alarba" class="logo-img" />
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="nav-menu" id="nav-menu">
             <a href="#about">About</a>
             <a href="#work">Work</a>
             <a href="#skills">Skills</a>
             <a href="#contact">Contact</a>
         </nav>
-        <a href="#contact" class="cta-btn">Start a project</a>
     </div>
 </header>
 
@@ -47,9 +53,6 @@
                 <p class="sub-text">
                     Delivering interactive experiences with<br>MVC, Razor, and responsive design
                 </p>
-                <a href="#contact" class="side-btn btn-light">
-                    Talk about a build <i class="fa-solid fa-arrow-right"></i>
-                </a>
             </div>
 
             <!-- Developer Image -->
@@ -113,9 +116,6 @@
                     Building secure, decentralized solutions<br>
                     with smart contracts and Web3
                 </p>
-                <a href="#work" class="side-btn btn-dark">
-                    View blockchain work <i class="fa-solid fa-arrow-right"></i>
-                </a>
             </div>
 
             <!-- Designer Image -->
@@ -141,11 +141,11 @@
 <section id="about" class="about-section">
     <div class="container">
         <div class="about-intro section-reveal">
-            <h2>I'm a Back-end and Blockchain Developer based in sunny Cebu, Philippines.</h2>
+            <h2>I'm a 3rd-year student at the University of Cebu.</h2>
             <p>
-                Since I started my journey in tech, I've enjoyed turning complex logic into simple, 
-                beautiful and intuitive systems. When I'm not writing code, you'll find me cooking, 
-                gardening or working out in the park.
+                Since I began my journey in tech, I’ve enjoyed transforming complex logic into simple, 
+                beautiful, and intuitive systems. When I’m not writing code, you’ll find me cooking, 
+                playing chess, working out, or relaxing on the beach at Bantayan Island.
             </p>
         </div>
 
@@ -187,7 +187,6 @@
         <div id="work" class="about-projects">
             <section class="featured-projects-section">
                 <div class="fp-header section-reveal">
-                    <span class="fp-number">02.</span>
                     <h2 class="fp-title">Featured Works</h2>
                     <div class="fp-divider"></div>
                 </div>
@@ -208,11 +207,11 @@
                             </p>
                         </div>
                         <div class="fp-tech-stack">
-                            <span class="fp-badge">C# 13</span>
-                            <span class="fp-badge">ASP.NET Core 10</span>
-                            <span class="fp-badge">PostgreSQL</span>
-                            <span class="fp-badge">Supabase</span>
-                            <span class="fp-badge">RBAC</span>
+                            <span class="fp-badge"><i class="fa-brands fa-dot-net icon-csharp"></i> C# 13</span>
+                            <span class="fp-badge"><i class="fa-brands fa-dot-net icon-aspnet"></i> ASP.NET Core 10</span>
+                            <span class="fp-badge"><i class="fa-solid fa-database icon-postgres"></i> PostgreSQL</span>
+                            <span class="fp-badge"><i class="fa-solid fa-cloud icon-supabase"></i> Supabase</span>
+                            <span class="fp-badge"><i class="fa-solid fa-shield icon-rbac"></i> RBAC</span>
                         </div>
                         <div class="fp-actions">
                             <a href="https://github.com/Paulalarba/SugboGo.git" class="fp-action-icon" aria-label="Open SugboGo GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
@@ -237,11 +236,11 @@
                             </p>
                         </div>
                         <div class="fp-tech-stack">
-                            <span class="fp-badge">ASP.NET Core 10</span>
-                            <span class="fp-badge">QR Security</span>
-                            <span class="fp-badge">Data Protection API</span>
-                            <span class="fp-badge">EF Core 10</span>
-                            <span class="fp-badge">Identity</span>
+                            <span class="fp-badge"><i class="fa-brands fa-dot-net icon-aspnet"></i> ASP.NET Core 10</span>
+                            <span class="fp-badge"><i class="fa-solid fa-qrcode icon-qr"></i> QR Security</span>
+                            <span class="fp-badge"><i class="fa-solid fa-lock icon-dataprotection"></i> Data Protection API</span>
+                            <span class="fp-badge"><i class="fa-solid fa-database icon-efcore"></i> EF Core 10</span>
+                            <span class="fp-badge"><i class="fa-solid fa-user-lock icon-identity"></i> Identity</span>
                         </div>
                         <div class="fp-actions">
                             <a href="https://github.com/Paulalarba/FitTrack-.git" class="fp-action-icon" aria-label="Open FitTrack GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
@@ -266,11 +265,11 @@
                             </p>
                         </div>
                         <div class="fp-tech-stack">
-                            <span class="fp-badge">SignalR</span>
-                            <span class="fp-badge">.NET 10</span>
-                            <span class="fp-badge">PostgreSQL</span>
-                            <span class="fp-badge">Seat Reservation</span>
-                            <span class="fp-badge">Identity</span>
+                            <span class="fp-badge"><i class="fa-solid fa-wifi icon-signalr"></i> SignalR</span>
+                            <span class="fp-badge"><i class="fa-brands fa-dot-net icon-dotnet"></i> .NET 10</span>
+                            <span class="fp-badge"><i class="fa-solid fa-database icon-postgres"></i> PostgreSQL</span>
+                            <span class="fp-badge"><i class="fa-solid fa-chair icon-seating"></i> Seat Reservation</span>
+                            <span class="fp-badge"><i class="fa-solid fa-user-lock icon-identity"></i> Identity</span>
                         </div>
                         <div class="fp-actions">
                             <a href="https://github.com/Paulalarba/UcCcsSitIn.git" class="fp-action-icon" aria-label="Open UC CCS Sit-In GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
@@ -294,11 +293,11 @@
                             </p>
                         </div>
                         <div class="fp-tech-stack">
-                            <span class="fp-badge">ASP.NET Core MVC</span>
-                            <span class="fp-badge">EF Core</span>
-                            <span class="fp-badge">SQL Server</span>
-                            <span class="fp-badge">Session State</span>
-                            <span class="fp-badge">Repository Pattern</span>
+                            <span class="fp-badge"><i class="fa-brands fa-dot-net icon-mvc"></i> ASP.NET Core MVC</span>
+                            <span class="fp-badge"><i class="fa-solid fa-database icon-efcore"></i> EF Core</span>
+                            <span class="fp-badge"><i class="fa-solid fa-database icon-sqlserver"></i> SQL Server</span>
+                            <span class="fp-badge"><i class="fa-solid fa-layer-group icon-api"></i> Session State</span>
+                            <span class="fp-badge"><i class="fa-solid fa-cubes icon-mvc"></i> Repository Pattern</span>
                         </div>
                         <div class="fp-actions">
                             <a href="https://github.com/Paulalarba/SportsStore.git" class="fp-action-icon" aria-label="Open SportsStore GitHub repository" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
@@ -310,6 +309,19 @@
         </div>
     </div>
 </section>
+
+<!-- Footer with Social Links -->
+<footer id="footer" class="footer-section">
+    <div class="footer-content">
+        <div class="social-links-footer">
+            <a href="https://linkedin.com/in/paulalarba" target="_blank" rel="noopener noreferrer" class="social-link-footer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://github.com/Paulalarba" target="_blank" rel="noopener noreferrer" class="social-link-footer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="mailto:paul@example.com" class="social-link-footer" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            <a href="https://x.com/paulalarba" target="_blank" rel="noopener noreferrer" class="social-link-footer" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p class="footer-text">&copy; 2024 Paul Alarba. All rights reserved.</p>
+    </div>
+</footer>
 
 @section Scripts {
     <script>
@@ -328,6 +340,41 @@
                     header.classList.remove('scrolled');
                 }
             });
+
+            // Logo click animation
+            const logoLink = document.getElementById('logo-link');
+            if (logoLink) {
+                logoLink.addEventListener('click', (e) => {
+                    // Remove the clicked class if it exists to restart animation
+                    logoLink.classList.remove('clicked');
+                    // Trigger reflow to restart animation
+                    void logoLink.offsetWidth;
+                    logoLink.classList.add('clicked');
+                    
+                    // Remove class after animation completes
+                    setTimeout(() => {
+                        logoLink.classList.remove('clicked');
+                    }, 600);
+                });
+            }
+
+            // Hamburger menu toggle
+            const hamburger = document.getElementById('hamburger');
+            const navMenu = document.getElementById('nav-menu');
+            if (hamburger && navMenu) {
+                hamburger.addEventListener('click', () => {
+                    hamburger.classList.toggle('active');
+                    navMenu.classList.toggle('active');
+                });
+
+                // Close menu when a link is clicked
+                navMenu.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        hamburger.classList.remove('active');
+                        navMenu.classList.remove('active');
+                    });
+                });
+            }
 
             let currentX = window.innerWidth / 2;
             let targetX = window.innerWidth / 2;
