@@ -1,0 +1,17 @@
+@{ ViewData["Title"] = "Admin Login"; }
+
+<div style="display: flex; justify-content: center; align-items: center; height: 80vh; font-family: sans-serif;">
+    <div style="border: 1px solid #ccc; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+        <h2>Admin Access</h2>
+        <form asp-action="Login" method="post">
+            <div style="margin-bottom: 1rem;">
+                <label>Password:</label><br/>
+                <input type="password" name="password" style="padding: 8px; width: 200px;" required />
+            </div>
+            @if (ViewBag.Error != null) {
+                <p style="color: red; font-size: 0.8rem;">@ViewBag.Error</p>
+            }
+            <button type="submit" style="padding: 8px 16px; cursor: pointer;">Enter</button>
+        </form>
+    </div>
+</div>

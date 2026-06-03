@@ -1,0 +1,33 @@
+@model IEnumerable<PaulAlarba.Models.ContactMessage>
+@{ ViewData["Title"] = "Admin Inbox"; }
+
+<div style="padding: 2rem; font-family: sans-serif;">
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+        <h1>Contact Inbox</h1>
+        <a asp-action="Logout" style="color: red; text-decoration: none;">Logout</a>
+    </div>
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 2rem;">
+        <thead>
+            <tr style="background-color: #f4f4f4; text-align: left; border-bottom: 2px solid #ddd;">
+                <th style="padding: 12px;">Date</th>
+                <th style="padding: 12px;">Name</th>
+                <th style="padding: 12px;">Email</th>
+                <th style="padding: 12px;">Subject</th>
+                <th style="padding: 12px;">Message</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 12px; font-size: 0.8rem;">@item.CreatedAtUtc.ToString("g")</td>
+                    <td style="padding: 12px;">@item.Name</td>
+                    <td style="padding: 12px;"><a href="mailto:@item.Email">@item.Email</a></td>
+                    <td style="padding: 12px;">@item.Subject</td>
+                    <td style="padding: 12px;">@item.Message</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

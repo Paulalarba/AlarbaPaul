@@ -152,4 +152,35 @@ document.addEventListener("DOMContentLoaded", function () {
       closeMobileMenu();
     }
   });
+
+  // Show global loading overlay for internal navigation and form submit
+  function showLoadingOverlay() {
+    const overlay = document.getElementById('pa-loading-overlay');
+    if (!overlay) return;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+
+  document.addEventListener('click', function (event) {
+    const anchor = event.target.closest('a');
+    if (!anchor) return;
+    const href = anchor.getAttribute('href');
+    if (!href) return;
+    // ignore anchors, mailto, tel, external or new-tab links
+    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
+    const rel = anchor.getAttribute('rel') || '';
+    if (rel.includes('external')) return;
+
+    // allow smaller delay for same-page smooth-scroll (handled above)
+    showLoadingOverlay();
+    // Let navigation proceed naturally; overlay will display until unload
+  });
+
+  // Show overlay for form submits (non-AJAX)
+  document.addEventListener('submit', function (event) {
+    const form = event.target;
+    if (!(form instanceof HTMLFormElement)) return;
+    showLoadingOverlay();
+  });
 });

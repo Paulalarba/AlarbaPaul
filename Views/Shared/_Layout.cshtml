@@ -15,9 +15,13 @@
     />
 
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="icon" href="~/Public/image/Logo.png" type="image/png" asp-append-version="true" />
+    <link rel="shortcut icon" href="~/Public/image/Logo.png" type="image/png" asp-append-version="true" />
 </head>
 <body>
     @RenderBody()
+
+    @await Html.PartialAsync("_Loading")
 
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)

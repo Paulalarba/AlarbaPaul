@@ -9,10 +9,12 @@ DotEnv.Load();
 
 var builder = WebApplication.CreateBuilder(args);
 
-// 2. Add services to the container.
+builder.Services.AddSession(options => {
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
 
-// Fix: Use AddScoped instead of AddSingleton. 
-// Database contexts are short-lived; the store must be too.
 builder.Services.AddScoped<ContactMessageStore>();
 
 // Database Configuration
@@ -29,7 +31,7 @@ if (!app.Environment.IsDevelopment())
     app.UseExceptionHandler("/Home/Error");
     app.UseHsts();
 }
-
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseRouting();
 

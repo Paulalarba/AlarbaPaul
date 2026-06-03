@@ -90,7 +90,6 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.pdb
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.genruntimeconfig.cache
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\ref\PaulAlarba.dll
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.sourcelink.json
-C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\d0qvhg2yrw-{0}-6ieyiuxqvd-6ieyiuxqvd.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\buildtmp\contact-form-verify\appsettings.Development.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\buildtmp\contact-form-verify\appsettings.json
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\buildtmp\contact-form-verify\PaulAlarba.staticwebassets.runtime.json
@@ -199,3 +198,5 @@ C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\bin\Debug\net10.0\zh-Hant\Microsoft
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.csproj.AssemblyReference.cache
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\6uthod36e1-{0}-zaugtvjmke-zaugtvjmke.gz
 C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\PaulAlarba.csproj.Up2Date
+C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\d0qvhg2yrw-{0}-4pq9a3ki4y-4pq9a3ki4y.gz
+C:\Users\alarb\PROJECTS\Portfolio\PaulAlarba\obj\Debug\net10.0\compressed\mpn7x6wamx-{0}-ttd78aus2e-ttd78aus2e.gz
