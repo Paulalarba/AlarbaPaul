@@ -450,6 +450,27 @@ body {
     max-width: 800px;
     margin: 0 auto 3rem;
 }
+
+.about-intro .fp-header {
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.15rem;
+}
+
+.about-intro .fp-header .fp-divider:first-of-type {
+    display: block;
+}
+
+.about-intro .fp-title {
+    font-size: clamp(1.65rem, 3vw, 2.2rem);
+    white-space: normal;
+    flex-shrink: 0;
+}
+
+.about-intro .fp-divider {
+    flex-grow: 1;
+}
+
 .section-kicker {
     color: var(--accent);
     font-size: 0.85rem;
