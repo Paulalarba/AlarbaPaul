@@ -1,41 +1,296 @@
-@* Loading overlay partial *@
-<div id="pa-loading-overlay" style="display:none;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:rgba(10,12,16,0.6);">
-  <div style="max-width:480px;width:100%;padding:20px;display:flex;justify-content:center;">
-    <style>
-      @@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
-      @@keyframes scaleIn { from { transform: scale(0.6); opacity: 0 } to { transform: scale(1); opacity: 1 } }
-      @@keyframes spinDraw { from { stroke-dashoffset: 565 } to { stroke-dashoffset: 0 } }
-      @@keyframes fillReveal { 0%, 60% { opacity: 0 } 100% { opacity: 1 } }
-      @@keyframes barLoad { from { width: 0 } to { width: 100% } }
-      @@keyframes pulse { 0%, 100% { opacity: 1 } 50% { opacity: 0.4 } }
+@* Custom Loading Animation Overlay *@
+@{
+    bool skipLoading = TempData.Peek("SkipLoading") as bool? ?? false;
+    if (Context.Request.Method == "POST") skipLoading = true;
+}
+<script>
+    (function () {
+        var overlay = document.getElementById('pa-loading-overlay');
+        if (!overlay) return;
 
-      .loading-wrap { display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:240px;gap:24px;background:#1a2333;border-radius:12px;padding:28px; }
-      .logo-svg { animation: scaleIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
-      .ring-path { fill:none; stroke:#2d4060; stroke-width:18; stroke-dasharray:565; stroke-dashoffset:565; animation: spinDraw 1.4s cubic-bezier(0.65,0,0.35,1) 0.3s forwards; }
-      .ring-glow { fill:none; stroke:#8ab4d4; stroke-width:3; stroke-dasharray:565; stroke-dashoffset:565; animation: spinDraw 1.4s cubic-bezier(0.65,0,0.35,1) 0.3s forwards; opacity:0.5; }
-      .letters { animation: fillReveal 0.6s ease 1.4s both; }
-      .progress-track { width:180px; height:2px; background:#2d4060; border-radius:2px; overflow:hidden; animation:fadeIn 0.4s ease 0.5s both; }
-      .progress-bar { height:100%; background:#8ab4d4; border-radius:2px; animation:barLoad 1.8s cubic-bezier(0.4,0,0.2,1) 0.5s both; }
-      .loading-text { font-size:13px; letter-spacing:0.18em; text-transform:uppercase; color:#8ab4d4; opacity:0; animation:fadeIn 0.5s ease 1.6s forwards, pulse 2s ease 2.1s infinite; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
-      .dots span { display:inline-block;width:4px;height:4px;background:#8ab4d4;border-radius:50%;margin:0 2px;opacity:0; }
-      .dots span:nth-child(1) { animation: fadeIn 0.3s ease 2.1s forwards, pulse 1.2s ease 2.4s infinite; }
-      .dots span:nth-child(2) { animation: fadeIn 0.3s ease 2.3s forwards, pulse 1.2s ease 2.6s infinite; }
-      .dots span:nth-child(3) { animation: fadeIn 0.3s ease 2.5s forwards, pulse 1.2s ease 2.8s infinite; }
+        // Force-restart all CSS animations by cloning the SVG and progress elements
+        function restartAnimations() {
+            overlay.querySelectorAll(
+                '.ring-path, .p-stem, .p-bowl, .a-left, .a-right, .a-cross, ' +
+                '.logo-svg, .progress-bar, .loading-text, .dots span'
+            ).forEach(function (el) {
+                el.style.animation = 'none';
+                el.style.opacity = '';
+                // Force reflow so the browser registers the reset
+                void el.getBoundingClientRect();
+                el.style.animation = '';
+            });
+        }
+
+        // Always restart on page show — covers back/forward cache (bfcache) and normal loads
+        window.addEventListener('pageshow', function (e) {
+            restartAnimations();
+        });
+
+        // Dismiss overlay once page is fully loaded, with a minimum display time
+        function dismiss() {
+            var elapsed = Date.now() - (window.loadingStartTime || Date.now());
+            var minDuration = 3600; // ms — enough for the full draw sequence
+            var remaining = Math.max(0, minDuration - elapsed);
+            setTimeout(function () {
+                overlay.style.opacity = '0';
+                setTimeout(function () {
+                    overlay.style.display = 'none';
+                }, 650);
+            }, remaining);
+        }
+
+        if (document.readyState === 'complete') {
+            dismiss();
+        } else {
+            window.addEventListener('load', dismiss);
+        }
+    })();
+</script>
+
+@if (!skipLoading)
+{
+<div id="pa-loading-overlay" style="display:flex;position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;background:var(--bg-light);transition:opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1);">
+    <style>
+        @@keyframes scaleIn {
+            from { transform: scale(0.7); opacity: 0 }
+            to   { transform: scale(1);   opacity: 1 }
+        }
+
+        /* Circle: circumference of r=56 is 2π×56 ≈ 352 */
+        @@keyframes drawRing {
+            from { stroke-dashoffset: 352 }
+            to   { stroke-dashoffset: 0   }
+        }
+
+        /* P stem — vertical line length ~130px */
+        @@keyframes drawPStem {
+            from { stroke-dashoffset: 130 }
+            to   { stroke-dashoffset: 0   }
+        }
+
+        /* P bowl — arc path length ~210px */
+        @@keyframes drawPBowl {
+            from { stroke-dashoffset: 210 }
+            to   { stroke-dashoffset: 0   }
+        }
+
+        /* A left leg — diagonal length ~110px */
+        @@keyframes drawALeft {
+            from { stroke-dashoffset: 110 }
+            to   { stroke-dashoffset: 0   }
+        }
+
+        /* A right leg — diagonal length ~110px */
+        @@keyframes drawARight {
+            from { stroke-dashoffset: 110 }
+            to   { stroke-dashoffset: 0   }
+        }
+
+        /* A crossbar — horizontal line ~46px */
+        @@keyframes drawACross {
+            from { stroke-dashoffset: 46 }
+            to   { stroke-dashoffset: 0  }
+        }
+
+        @@keyframes barLoad {
+            from { width: 0 }
+            to   { width: 100% }
+        }
+
+        @@keyframes fadeIn {
+            from { opacity: 0 }
+            to   { opacity: 1 }
+        }
+
+        @@keyframes pulse {
+            0%, 100% { opacity: 1   }
+            50%       { opacity: 0.4 }
+        }
+
+        .loading-wrap {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 420px;
+            gap: 36px;
+            padding: 48px 24px;
+        }
+
+        /* Outer logo container pops in */
+        .logo-svg {
+            animation: scaleIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+            overflow: visible;
+        }
+
+        /* ── Ring ── */
+        .ring-track {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 18;
+            opacity: 0.08;
+        }
+
+        .ring-path {
+            fill: none;
+            stroke: var(--accent);
+            stroke-width: 18;
+            stroke-linecap: round;
+            stroke-dasharray: 352;
+            stroke-dashoffset: 352;
+            animation: drawRing 1.6s cubic-bezier(0.65, 0, 0.35, 1) 0.4s forwards;
+        }
+
+        /* ── Letter strokes (shared props) ── */
+        .letter-stroke {
+            fill: none;
+            stroke: var(--text-dark);
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* P stem */
+        .p-stem {
+            stroke-width: 9;
+            stroke-dasharray: 130;
+            stroke-dashoffset: 130;
+            animation: drawPStem 0.5s ease-out 1.8s forwards;
+        }
+
+        /* P bowl */
+        .p-bowl {
+            stroke-width: 9;
+            stroke-dasharray: 210;
+            stroke-dashoffset: 210;
+            animation: drawPBowl 0.65s ease-out 2.2s forwards;
+        }
+
+        /* A left leg */
+        .a-left {
+            stroke-width: 9;
+            stroke-dasharray: 110;
+            stroke-dashoffset: 110;
+            animation: drawALeft 0.45s ease-out 2.7s forwards;
+        }
+
+        /* A right leg */
+        .a-right {
+            stroke-width: 9;
+            stroke-dasharray: 110;
+            stroke-dashoffset: 110;
+            animation: drawARight 0.45s ease-out 3.0s forwards;
+        }
+
+        /* A crossbar */
+        .a-cross {
+            stroke-width: 9;
+            stroke-dasharray: 46;
+            stroke-dashoffset: 46;
+            animation: drawACross 0.3s ease-out 3.3s forwards;
+        }
+
+        /* ── Progress bar ── */
+        .progress-track {
+            width: 180px;
+            height: 2px;
+            background: rgba(0,0,0,0.08);
+            border-radius: 2px;
+            overflow: hidden;
+            animation: fadeIn 0.4s ease 0.5s both;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: var(--accent);
+            border-radius: 2px;
+            animation: barLoad 3.2s cubic-bezier(0.4, 0, 0.2, 1) 0.5s both;
+        }
+
+        /* ── Loading text ── */
+        .loading-text {
+            font-size: 13px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+            opacity: 0;
+            animation: fadeIn 0.5s ease 2.3s forwards, pulse 2s ease 2.8s infinite;
+            font-family: var(--font-main);
+        }
+
+        .dots span {
+            display: inline-block;
+            width: 4px; height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin: 0 2px;
+            opacity: 0;
+        }
+
+        .dots span:nth-child(1) { animation: fadeIn 0.3s ease 2.8s forwards, pulse 1.2s ease 3.1s infinite; }
+        .dots span:nth-child(2) { animation: fadeIn 0.3s ease 3.0s forwards, pulse 1.2s ease 3.3s infinite; }
+        .dots span:nth-child(3) { animation: fadeIn 0.3s ease 3.2s forwards, pulse 1.2s ease 3.5s infinite; }
     </style>
 
-    <div class="loading-wrap" role="status" aria-live="polite">
-      <svg class="logo-svg" width="120" height="120" viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PA logo loading">
-        <circle class="ring-path" cx="70" cy="70" r="56" transform="rotate(-90 70 70)" />
-        <circle class="ring-glow" cx="70" cy="70" r="56" transform="rotate(-90 70 70)" />
-        <g class="letters" fill="#2d4060">
-          <text x="70" y="97" text-anchor="middle" font-size="64" font-weight="700" font-family="Georgia, serif" fill="#c8d8e8" letter-spacing="-2">PA</text>
-        </g>
-      </svg>
+    <div class="loading-wrap">
 
-      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;">
-        <div class="progress-track"><div class="progress-bar"></div></div>
-        <div style="display:flex;align-items:center;gap:8px;"><span class="loading-text">Loading</span><div class="dots"><span></span><span></span><span></span></div></div>
-      </div>
+        <!--
+            SVG logo: 140×140, circle r=56 centered at (70,70)
+            Circumference = 2π×56 ≈ 352  ← used in stroke-dasharray
+
+            Letter geometry (hand-traced from the PA logo):
+            P: stem x=46 from y=30→y=110 (length 80 → dasharray 130 with linecap)
+               bowl: cubic from (46,30) → right bump → back to (46,60)
+            A: apex at (88,30), legs down to (68,110) and (108,110)
+               crossbar at y=74 from x=73 to x=103
+        -->
+        <svg class="logo-svg" width="140" height="140" viewBox="0 0 140 140"
+             xmlns="http://www.w3.org/2000/svg" role="img" aria-label="PA logo loading">
+
+            <!-- Faint background ring (always visible as a guide track) -->
+            <circle class="ring-track" cx="70" cy="70" r="56" />
+
+            <!-- Animated drawing ring — starts at 12 o'clock (rotate -90) -->
+            <circle class="ring-path"
+                    cx="70" cy="70" r="56"
+                    transform="rotate(-90 70 70)" />
+
+            <!-- ── Letter P ── -->
+            <!-- Stem: top (46,30) → bottom (46,110) -->
+            <line class="letter-stroke p-stem"
+                  x1="46" y1="30" x2="46" y2="110" />
+
+            <!-- Bowl: start at top of stem, arc out right, return to mid-stem -->
+            <!-- Control points push the bump to x≈80, matching the logo's P bowl -->
+            <path class="letter-stroke p-bowl"
+                  d="M46,30 C46,30 86,28 86,52 C86,76 46,72 46,72" />
+
+            <!-- ── Letter A ── -->
+            <!-- Left leg: apex (88,30) → bottom-left (68,110) -->
+            <line class="letter-stroke a-left"
+                  x1="88" y1="30" x2="68" y2="110" />
+
+            <!-- Right leg: apex (88,30) → bottom-right (108,110) -->
+            <line class="letter-stroke a-right"
+                  x1="88" y1="30" x2="108" y2="110" />
+
+            <!-- Crossbar: left (73,74) → right (103,74) -->
+            <line class="letter-stroke a-cross"
+                  x1="73" y1="74" x2="103" y2="74" />
+        </svg>
+
+        <!-- Progress & label -->
+        <div style="display:flex; flex-direction:column; align-items:center; gap:14px;">
+            <div class="progress-track">
+                <div class="progress-bar"></div>
+            </div>
+            <div style="display:flex; align-items:center; gap:8px;">
+                <span class="loading-text">Loading</span>
+                <div class="dots">
+                    <span></span><span></span><span></span>
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 </div>
+}

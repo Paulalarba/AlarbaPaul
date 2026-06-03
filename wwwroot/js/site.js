@@ -1,5 +1,6 @@
 ﻿// site.js - Interactive functionality
 document.addEventListener("DOMContentLoaded", function () {
+  const loadingStartTime = window.loadingStartTime || Date.now();
   const header = document.getElementById("site-header");
   const menuToggle = document.getElementById("menu-toggle");
   const mobileMenu = document.getElementById("mobile-menu");
@@ -157,30 +158,35 @@ document.addEventListener("DOMContentLoaded", function () {
   function showLoadingOverlay() {
     const overlay = document.getElementById('pa-loading-overlay');
     if (!overlay) return;
+    overlay.style.opacity = '1';
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
 
-  document.addEventListener('click', function (event) {
-    const anchor = event.target.closest('a');
-    if (!anchor) return;
-    const href = anchor.getAttribute('href');
-    if (!href) return;
-    // ignore anchors, mailto, tel, external or new-tab links
-    if (href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-    if (anchor.target === '_blank' || anchor.hasAttribute('download')) return;
-    const rel = anchor.getAttribute('rel') || '';
-    if (rel.includes('external')) return;
+  let isHiding = false;
+  function hideLoadingOverlay() {
+    const overlay = document.getElementById('pa-loading-overlay');
+    if (!overlay || isHiding) return;
+    isHiding = true;
+    
+    const elapsedTime = Date.now() - loadingStartTime;
+    const minDisplayTime = 3500; // Increased to ensure at least 3 seconds + full animation completion
+    const remainingTime = Math.max(0, minDisplayTime - elapsedTime);
 
-    // allow smaller delay for same-page smooth-scroll (handled above)
-    showLoadingOverlay();
-    // Let navigation proceed naturally; overlay will display until unload
-  });
+    setTimeout(() => {
+      overlay.style.opacity = '0';
+      setTimeout(() => {
+        overlay.style.display = 'none';
+        overlay.style.opacity = '1';
+        document.body.style.overflow = '';
+      }, 600); // Match the 0.6s transition in _Loading.cshtml
+    }, remainingTime);
+  }
 
-  // Show overlay for form submits (non-AJAX)
-  document.addEventListener('submit', function (event) {
-    const form = event.target;
-    if (!(form instanceof HTMLFormElement)) return;
-    showLoadingOverlay();
-  });
+  // Hide on initial load
+  if (document.readyState === 'complete') {
+    hideLoadingOverlay();
+  } else {
+    window.addEventListener('load', hideLoadingOverlay);
+  }
 });

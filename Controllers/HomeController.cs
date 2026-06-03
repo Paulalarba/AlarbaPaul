@@ -26,13 +26,15 @@ namespace PaulAlarba.Controllers
         {
             if (!ModelState.IsValid)
             {
+                TempData["SkipLoading"] = true;
                 return View("Index", model);
             }
 
             await _contactMessageStore.SaveAsync(model.Contact, cancellationToken);
             TempData["ContactStatus"] = "Your message has been sent. I’ll get back to you soon.";
+            TempData["SkipLoading"] = true;
 
-            return Redirect($"{Url.Action(nameof(Index), "Home")}#contact");
+            return Redirect(Url.Action(nameof(Index), "Home") + "#contact");
         }
 
         public IActionResult Privacy()

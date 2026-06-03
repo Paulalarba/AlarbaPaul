@@ -451,6 +451,15 @@
     @await Html.PartialAsync("_ValidationScriptsPartial")
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // If we just submitted the form (skipped loading), ensure we are at the contact section
+            const shouldSkip = "@TempData.Peek("SkipLoading")" === "True" || window.PA_SKIP_ANIMATION === true;
+            if (shouldSkip && !window.location.hash) {
+                const contactSection = document.getElementById('contact');
+                if (contactSection) {
+                    contactSection.scrollIntoView();
+                }
+            }
+
             const wrapper = document.getElementById('splitWrapper');
             const leftPanel = document.getElementById('leftPanel');
             const hint = document.getElementById('mobileHint');
